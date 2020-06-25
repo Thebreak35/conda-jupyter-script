@@ -1,5 +1,20 @@
 # Conda
 
+## How to use the scripts
+
+*Remote machine*
+
+- ssh to remote machine and clone this repository `git clone https://github.com/Thebreak35/conda-jupyter-script`
+- `cd conda-jupyter-script`
+- Install the conda environment (Skip this if you had execute this command) `sh installation-script.sh`
+- Activate conda environment and run Jupyter notebook `sh remote-machine.sh`
+You'll see token from remote machine. Copy the token to login from your local machine.
+
+*Local machine*
+- Run this following command `ssh -N -L localhost:8889:localhost:8888`
+- Open your web browser and type a URL `localhost:8889`
+You need the token from previous step to login.
+
 ## Installation
 
 Run these following commands on remote machine
