@@ -5,9 +5,12 @@
 *Remote machine*
 
 - ssh to remote machine and clone this repository `git clone https://github.com/Thebreak35/conda-jupyter-script`
+- `mkdir notebook-root`
 - `cd conda-jupyter-script`
 - Install the conda environment (Skip this if you had execute this command) `sh installation-script.sh`. Create a password for Jupyter notebook.
-- Activate conda environment and run Jupyter notebook `sh remote-machine.sh`
+- Activate conda environment `conda activate my-env-1`
+- cd into notebook-root directory `cd ~/notebook-root`
+- run Jupyter notebook `nohup jupyter notebook --no-browser --port=8888 & > nohup.out`
 
 *Local machine*
 - Run this following command `ssh -N -L localhost:8889:localhost:8888 your-remote-user@your-remote-machine`
