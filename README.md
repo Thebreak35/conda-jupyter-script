@@ -1,15 +1,17 @@
 # Conda
 
-## How to use the scripts
+## For first installation
 
 *Remote machine*
 
-- ssh to remote machine and clone this repository `git clone https://github.com/Thebreak35/conda-jupyter-script`
+Run these following commands.
+
 - `mkdir notebook-root`
-- `cd conda-jupyter-script`
-- Install the conda environment (Skip this if you had execute this command) `sh installation-script.sh`. Create a password for Jupyter notebook.
-- Activate conda environment `conda activate my-env-1`
-- cd into notebook-root directory `cd ~/notebook-root`
+- `cd notebook-root`
+- Create a conda environment `conda create -n my-env-1`
+- Activate the conda environment `conda activate my-env-1`
+- Install Jupyter notebook `conda install -c conda-forge notebook`
+- Setup password for notebook `jupyter notebook password`
 - run Jupyter notebook `nohup jupyter notebook --no-browser --port=8888 & > nohup.out`
 
 *Local machine*
@@ -17,31 +19,27 @@
 - Open your web browser and type a URL `localhost:8889`
 You need the password you created from previous step to login.
 
-## Installation
+## Install other libraries
 
-Run these following commands on remote machine
+You need to ssh into remote machine.
 
-`conda create -n my-env-1`
+`ssh your-remote-user@your-remote-machine`
 
-Activate conda environment
+*Remote machine*
 
-`conda activate my-env-1`
-
-Install Jupyter notebook
-
-`conda install -c conda-forge notebook`
-
-Check package after installation
-
-`conda list`
-
----
+- Activate the conda environment `conda activate my-env-1`
+- Check for packages `conda list` or `pip list`
+- You can install libraries via [conda](https://anaconda.org/anaconda/repo) `conda install lib-name` or [pip](https://pypi.org/) `pip install lib-name`
+- You can install a specific version of library `conda install lib-name==1.0.1` or `pip install lib-name==1.0.1`
+- You can install libraries from a specific channel `conda install -c conda-forge lib-name` (see [Conda channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html), [conda-forge](https://anaconda.org/conda-forge/repo) )
 
 ## Running a Jupyter notebook from remote server
 
+If you completed the instructions from ## For the first installation. Jupyter notebook process should be running in backgroud. You can skip into ### Step 2
+
 #### - Step 1: Run this following command from remote machine
 
-`jupyter notebook --no-browser --port=8888`
+ssh into remote machine then run Jupyter notebook `nohup jupyter notebook --no-browser --port=8888 & > nohup.out`
 
 #### - Step 2: Forward port
 
